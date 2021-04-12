@@ -70,3 +70,6 @@ _warmup/
 # Exceptions
 !.gitignore
 !.gitkeep
+
+# Vagrant file
+.vagrant
