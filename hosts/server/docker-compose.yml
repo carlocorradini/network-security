@@ -5,7 +5,3 @@ services:
     build:
       context: hosts/server/Dockerfile
       dockerfile: hosts/server/Dockerfile
-    stdin_open: true
-    tty: true
-    cap_add:
-      - ALL

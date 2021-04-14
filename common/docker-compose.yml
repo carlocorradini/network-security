@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  attacker:
+    stdin_open: true
+    tty: true
+    cap_add:
+      - ALL
+  client:
+    stdin_open: true
+    tty: true
+    cap_add:
+      - ALL
+  server:
+    stdin_open: true
+    tty: true
+    cap_add:
+      - ALL

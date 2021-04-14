@@ -5,7 +5,3 @@ services:
     build:
       context: hosts/attacker/Dockerfile
       dockerfile: hosts/attacker/Dockerfile
-    stdin_open: true
-    tty: true
-    cap_add:
-      - ALL
