@@ -1,23 +1,21 @@
 version: "3"
 
 services:
-  client:
-    build: .
-    stdin_open: true
-    tty: true
-    networks:
-      app_net:
-        ipv4_address: 192.168.0.10
   attacker:
-    build: .
-    stdin_open: true
-    tty: true
     networks:
-      app_net:
+      network:
+        ipv4_address: 192.168.0.10
+  client:
+    networks:
+      network:
         ipv4_address: 192.168.0.20
-      
+  server:
+    networks:
+      network:
+        ipv4_address: 192.168.0.30
+
 networks:
-  app_net:
+  network:
     ipam:
       driver: default
       config:

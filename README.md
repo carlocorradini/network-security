@@ -1,6 +1,6 @@
 ﻿# Network Security
 
-**Members**:
+## Members
 
 |   Name   |  Surname  |     Username     |    MAT     |
 | :------: | :-------: | :--------------: | :--------: |
@@ -8,6 +8,11 @@
 | Giovanni |   Zotta   | `GiovanniZotta`  | **223898** |
 |  Nicoló  |   Vinci   |     `nico98`     | **220229** |
 
+## Bootstrap
+
+```bash
+$ ./bootstrap.sh
+```
 ## License
 
 MIT
