@@ -1,7 +1,0 @@
-version: "3"
-
-services:
-  attacker:
-    build:
-      context: hosts/attacker/Dockerfile
-      dockerfile: hosts/attacker/Dockerfile

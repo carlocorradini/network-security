@@ -2,14 +2,38 @@ version: "3"
 
 services:
   attacker:
+    build:
+      context: hosts
+      dockerfile: Dockerfile.attacker
+    container_name: attacker
+    stdin_open: true
+    tty: true
+    cap_add:
+      - ALL
     networks:
       network:
         ipv4_address: 192.168.0.10
   client:
+    build:
+      context: hosts
+      dockerfile: Dockerfile.client
+    container_name: client
+    stdin_open: true
+    tty: true
+    cap_add:
+      - ALL
     networks:
       network:
         ipv4_address: 192.168.0.20
   server:
+    build:
+      context: hosts
+      dockerfile: Dockerfile.server
+    container_name: server
+    stdin_open: true
+    tty: true
+    cap_add:
+      - ALL
     networks:
       network:
         ipv4_address: 192.168.0.30

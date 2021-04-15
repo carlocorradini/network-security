@@ -1,4 +1,4 @@
-# Download base image ubuntu
+# Download ubuntu image
 FROM ubuntu
 
 # Disable Prompt During Packages Installation
@@ -9,6 +9,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 #
 RUN apt-get update \
     && apt-get -y install --no-install-recommends \
-    iputils-ping \
+        iputils-ping \
+        net-tools \
+        iproute2 \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean

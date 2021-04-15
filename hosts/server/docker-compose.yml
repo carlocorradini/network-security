@@ -1,7 +1,0 @@
-version: "3"
-
-services:
-  server:
-    build:
-      context: hosts/server/Dockerfile
-      dockerfile: hosts/server/Dockerfile
