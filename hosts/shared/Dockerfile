@@ -1,5 +1,5 @@
 # Download ubuntu image
-FROM ubuntu
+FROM dorowu/ubuntu-desktop-lxde-vnc:focal-lxqt
 
 # Disable Prompt During Packages Installation
 ARG DEBIAN_FRONTEND=noninteractive
@@ -7,10 +7,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 #
 # Install tools
 #
-RUN apt-get update \
-    && apt-get -y install --no-install-recommends \
+RUN apt-get update
+RUN apt-get -y install \
         iputils-ping \
         net-tools \
-        iproute2 \
-    && rm -rf /var/lib/apt/lists/* \
-    && apt-get clean
+        iproute2
+RUN apt-get clean
