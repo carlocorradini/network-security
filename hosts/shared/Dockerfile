@@ -11,5 +11,6 @@ RUN apt-get update
 RUN apt-get -y install \
         iputils-ping \
         net-tools \
-        iproute2
+        iproute2 \
+        arping
 RUN apt-get clean
