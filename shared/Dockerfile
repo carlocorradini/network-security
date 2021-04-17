@@ -17,7 +17,8 @@ RUN apt-get -y install \
         iputils-ping \
         net-tools \
         iproute2 \
-        arping
+        arping \
+        vim
 RUN apt-get clean
 
 #
