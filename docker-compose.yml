@@ -3,10 +3,8 @@ version: "3"
 services:
   attacker:
     build:
-      context: hosts
-      dockerfile: Dockerfile.attacker
-      args:
-        BACKGROUND_IMAGE: attacker.png
+      context: .
+      dockerfile:  hosts/attacker/Dockerfile
     container_name: attacker
     stdin_open: true
     tty: true
@@ -24,10 +22,8 @@ services:
 
   client:
     build:
-      context: hosts
-      dockerfile: Dockerfile.client
-      args:
-        BACKGROUND_IMAGE: client.png
+      context: .
+      dockerfile:  hosts/client/Dockerfile
     container_name: client
     stdin_open: true
     tty: true
@@ -44,10 +40,8 @@ services:
 
   server:
     build:
-      context: hosts
-      dockerfile: Dockerfile.server
-      args:
-        BACKGROUND_IMAGE: server.png
+      context: .
+      dockerfile:  hosts/server/Dockerfile
     container_name: server
     stdin_open: true
     tty: true

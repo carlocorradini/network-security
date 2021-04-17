@@ -1,10 +1,15 @@
 # syntax = edrevo/dockerfile-plus
 
+#
+# ARGs
+#
+ARG BACKGROUND_IMAGE=hosts/attacker/background.png
+
 INCLUDE+ shared/Dockerfile
 
 #
 # Install tools
 #
 RUN apt-get -y install \
-        ncat
+        ettercap-common
 RUN apt-get clean
