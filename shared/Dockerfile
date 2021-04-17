@@ -25,6 +25,6 @@ RUN apt-get clean
 #
 RUN mkdir /root/media
 COPY ${BACKGROUND_IMAGE} /root/media/background.png
-RUN sed -i.bak "s~^\(Wallpaper=\).*~\1/root/media/background.png~" /root/.config/pcmanfm-qt/lxqt/settings.conf
-RUN sed -i.bak "s~^\(WallpaperMode=\).*~\1center~" /root/.config/pcmanfm-qt/lxqt/settings.conf
-RUN sed -i.bak "s~^\(BgColor=\).*~\1#333333~" /root/.config/pcmanfm-qt/lxqt/settings.conf
+RUN sed -i.bak "s~^\(Wallpaper=\).*~\1/root/media/background.png~" /root/.config/pcmanfm-qt/lxqt/settings.conf \
+        && sed -i.bak "s~^\(WallpaperMode=\).*~\1center~" /root/.config/pcmanfm-qt/lxqt/settings.conf \
+        && sed -i.bak "s~^\(BgColor=\).*~\1#333333~" /root/.config/pcmanfm-qt/lxqt/settings.conf
