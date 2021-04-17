@@ -12,4 +12,3 @@ INCLUDE+ shared/Dockerfile
 #
 RUN apt-get -y install \
         ettercap-common
-RUN apt-get clean

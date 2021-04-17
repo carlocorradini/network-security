@@ -19,7 +19,6 @@ RUN apt-get -y install \
         iproute2 \
         arping \
         vim
-RUN apt-get clean
 
 #
 # Background image
