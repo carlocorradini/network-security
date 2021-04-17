@@ -12,7 +12,7 @@ ARG BACKGROUND_IMAGE
 #
 # Install tools
 #
-RUN apt-get update --fix-missing
+RUN apt-get update
 RUN apt-get -y install \
         iputils-ping \
         net-tools \
