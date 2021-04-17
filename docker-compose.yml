@@ -5,6 +5,8 @@ services:
     build:
       context: hosts
       dockerfile: Dockerfile.attacker
+      args:
+        BACKGROUND_IMAGE: attacker.png
     container_name: attacker
     stdin_open: true
     tty: true
@@ -24,6 +26,8 @@ services:
     build:
       context: hosts
       dockerfile: Dockerfile.client
+      args:
+        BACKGROUND_IMAGE: client.png
     container_name: client
     stdin_open: true
     tty: true
@@ -42,6 +46,8 @@ services:
     build:
       context: hosts
       dockerfile: Dockerfile.server
+      args:
+        BACKGROUND_IMAGE: server.png
     container_name: server
     stdin_open: true
     tty: true
