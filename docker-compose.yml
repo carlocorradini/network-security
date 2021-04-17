@@ -4,8 +4,9 @@ services:
   attacker:
     build:
       context: .
-      dockerfile:  hosts/attacker/Dockerfile
+      dockerfile: hosts/attacker/Dockerfile
     container_name: attacker
+    hostname: attacker
     stdin_open: true
     tty: true
     cap_add:
@@ -23,8 +24,9 @@ services:
   client:
     build:
       context: .
-      dockerfile:  hosts/client/Dockerfile
+      dockerfile: hosts/client/Dockerfile
     container_name: client
+    hostname: client
     stdin_open: true
     tty: true
     cap_add:
@@ -41,8 +43,9 @@ services:
   server:
     build:
       context: .
-      dockerfile:  hosts/server/Dockerfile
+      dockerfile: hosts/server/Dockerfile
     container_name: server
+    hostname: server
     stdin_open: true
     tty: true
     cap_add:
