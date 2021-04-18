@@ -18,5 +18,6 @@ RUN apt-get -y install \
 # Copy telnet config file
 COPY hosts/server/telnet /etc/xinetd.d/telnet
 
-# Install server script
-RUN printf "\nalias server=\"while true; do date | sudo nc -l -p 8888; sleep 0.5; done\"\n" >> ~/.bashrc
+# Copy server script
+COPY hosts/server/server.sh /usr/local/bin/server_timestamp_service.sh
+RUN printf "\nalias server=\"server_timestamp_service.sh\"\n" >> ~/.bashrc
