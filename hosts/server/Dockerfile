@@ -15,9 +15,6 @@ RUN apt-get -y install \
         xinetd \
         telnetd
 
-#
-# Telnet
-#
 # Copy telnet config file
 COPY hosts/server/telnet /etc/xinetd.d/telnet
 

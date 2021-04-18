@@ -9,6 +9,9 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Background image
 ARG BACKGROUND_IMAGE
 
+# Change password to 'password'
+RUN echo "root:password" | chpasswd
+
 #
 # Install tools
 #
