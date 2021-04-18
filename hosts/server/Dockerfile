@@ -19,4 +19,4 @@ RUN apt-get -y install \
 COPY hosts/server/telnet /etc/xinetd.d/telnet
 
 # Install server script
-#RUN printf "\nalias server=\"while true; do date | sudo nc -l -p 8888; sleep 0.5; done\"\n" >> ~/.bashrc
+RUN printf "\nalias server=\"while true; do date | sudo nc -l -p 8888; sleep 0.5; done\"\n" >> ~/.bashrc
