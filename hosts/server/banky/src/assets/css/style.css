@@ -1,0 +1,24 @@
+html {
+  overflow: auto;
+}
+
+.background-image::before {
+  content: '';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #b2fefa;
+  background-image: linear-gradient(to right, #b2fefa, #0ed2f7);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.background-image.is-blurred::before {
+  filter: blur(3px);
+}
+
+.background-image.nature::before {
+    background-image: url('https://source.unsplash.com/featured/?nature');
+}

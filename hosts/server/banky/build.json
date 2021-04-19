@@ -1,0 +1,12 @@
+{
+    "target": "build/",
+    "copy": {
+        "files": [
+            "src/favicon.ico",
+            "src/index.html"
+        ],
+        "folders": [
+            "src/assets"
+        ]
+    }
+}
