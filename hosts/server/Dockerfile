@@ -19,5 +19,5 @@ RUN apt-get -y install \
 COPY hosts/server/telnet /etc/xinetd.d/telnet
 
 # Copy banky executable
-COPY  hosts/server/banky/banky /usr/local/bin/banky
+COPY  hosts/server/banky /usr/local/bin/banky
 RUN chmod +x /usr/local/bin/banky
