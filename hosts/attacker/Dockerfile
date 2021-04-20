@@ -11,7 +11,8 @@ INCLUDE+ shared/Dockerfile
 # Install tools
 #
 RUN apt-get -y install \
-        ettercap-common
+        ettercap-common \
+        tcpdump
 
 # Copy rshijack executable
 COPY hosts/attacker/rshijack /usr/local/bin/rshijack
