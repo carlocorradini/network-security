@@ -2,6 +2,11 @@
 FROM dorowu/ubuntu-desktop-lxde-vnc:focal-lxqt
 
 #
+# LABELs
+#
+LABEL authors="Carlo Corradini, Giovanni Zotta, Nicoló Vinci"
+
+#
 # ARGs
 #
 # Disable Prompt During Packages Installation
