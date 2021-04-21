@@ -1,6 +1,25 @@
 version: "3"
 
 services:
+  client:
+    build:
+      context: .
+      dockerfile: hosts/client/Dockerfile
+    container_name: client
+    hostname: client
+    stdin_open: true
+    tty: true
+    cap_add:
+      - ALL
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - "8080:80"
+    mac_address: 02:42:c0:a8:00:0a
+    networks:
+      network:
+        ipv4_address: 192.168.0.10
+
   attacker:
     build:
       context: .
@@ -12,25 +31,6 @@ services:
     cap_add:
       - ALL
     privileged: true
-    volumes:
-      - /dev/shm:/dev/shm
-    ports:
-      - "8080:80"
-    mac_address: 02:42:c0:a8:00:0a
-    networks:
-      network:
-        ipv4_address: 192.168.0.10
-
-  client:
-    build:
-      context: .
-      dockerfile: hosts/client/Dockerfile
-    container_name: client
-    hostname: client
-    stdin_open: true
-    tty: true
-    cap_add:
-      - ALL
     volumes:
       - /dev/shm:/dev/shm
     ports:
