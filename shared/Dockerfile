@@ -1,5 +1,6 @@
 # Download ubuntu image
-FROM dorowu/ubuntu-desktop-lxde-vnc:focal-lxqt
+#FROM dorowu/ubuntu-desktop-lxde-vnc:focal-lxqt
+FROM ubuntu
 
 #
 # LABELs
@@ -31,8 +32,8 @@ RUN apt-get -y install \
 #
 # Background image
 #
-RUN mkdir /root/media
-COPY ${BACKGROUND_IMAGE} /root/media/background.png
-RUN sed -i.bak "s~^\(Wallpaper=\).*~\1/root/media/background.png~" /root/.config/pcmanfm-qt/lxqt/settings.conf \
-        && sed -i.bak "s~^\(WallpaperMode=\).*~\1center~" /root/.config/pcmanfm-qt/lxqt/settings.conf \
-        && sed -i.bak "s~^\(BgColor=\).*~\1#333333~" /root/.config/pcmanfm-qt/lxqt/settings.conf
+#RUN mkdir /root/media
+#COPY ${BACKGROUND_IMAGE} /root/media/background.png
+#RUN sed -i.bak "s~^\(Wallpaper=\).*~\1/root/media/background.png~" /root/.config/pcmanfm-qt/lxqt/settings.conf \
+#        && sed -i.bak "s~^\(WallpaperMode=\).*~\1center~" /root/.config/pcmanfm-qt/lxqt/settings.conf \
+#        && sed -i.bak "s~^\(BgColor=\).*~\1#333333~" /root/.config/pcmanfm-qt/lxqt/settings.conf
