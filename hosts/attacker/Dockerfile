@@ -10,9 +10,20 @@ INCLUDE+ shared/Dockerfile
 #
 # Install tools
 #
+# APT
 RUN apt-get -y install \
         ettercap-common \
-        tcpdump
+        tcpdump \
+        git \
+        iptables \
+        build-essential \
+        python-dev \
+        python3-pip \
+        libnetfilter-queue-dev
+# pip
+RUN pip3 install -U \
+        scapy \
+        git+https://github.com/kti/python-netfilterqueue
 
 # Copy rshijack executable
 COPY hosts/attacker/rshijack /usr/local/bin/rshijack
