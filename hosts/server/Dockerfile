@@ -21,3 +21,6 @@ COPY hosts/server/telnet /etc/xinetd.d/telnet
 # Copy banky executable
 COPY  hosts/server/banky /usr/local/bin/banky
 RUN chmod +x /usr/local/bin/banky
+
+# Copy basic .vimrc
+COPY shared/.vimrc /root/.vimrc

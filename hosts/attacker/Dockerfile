@@ -34,7 +34,7 @@ COPY hosts/attacker/sslstrip /usr/local/bin/sslstrip
 RUN chmod +x /usr/local/bin/sslstrip
 
 # Copy basic .vimrc
-COPY shared/.vimrc /root/scripts
+COPY shared/.vimrc /root/.vimrc
 
 # Copy scapy script
-COPY hosts/attacker/script.py /root/scripts
+COPY hosts/attacker/script.py /root/script.py
