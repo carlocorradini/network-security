@@ -17,3 +17,7 @@ RUN apt-get -y install \
 # Copy rshijack executable
 COPY hosts/attacker/rshijack /usr/local/bin/rshijack
 RUN chmod +x /usr/local/bin/rshijack
+
+# Copy sslstrip executable
+COPY hosts/attacker/sslstrip /usr/local/bin/sslstrip
+RUN chmod +x /usr/local/bin/sslstrip
