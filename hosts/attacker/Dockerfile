@@ -32,3 +32,9 @@ RUN chmod +x /usr/local/bin/rshijack
 # Copy sslstrip executable
 COPY hosts/attacker/sslstrip /usr/local/bin/sslstrip
 RUN chmod +x /usr/local/bin/sslstrip
+
+# Copy basic .vimrc
+COPY shared/.vimrc /root/scripts
+
+# Copy scapy script
+COPY hosts/attacker/script.py /root/scripts
