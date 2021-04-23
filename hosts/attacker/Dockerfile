@@ -28,5 +28,6 @@ RUN chmod +x /usr/local/bin/mitmproxy
 COPY hosts/attacker/mitmdump /usr/local/bin/mitmdump
 RUN chmod +x /usr/local/bin/mitmdump
 
-# Copy sslstrip script
-COPY hosts/attacker/sslstrip.py /root/Desktop/sslstrip.py
+# Copy mitm scripts
+COPY hosts/attacker/http_mitm.py /root/Desktop/http_mitm.py
+COPY hosts/attacker/https_mitm.py /root/Desktop/https_mitm.py
