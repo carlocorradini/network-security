@@ -32,3 +32,9 @@ RUN chmod +x /usr/local/bin/rshijack
 # Copy sslstrip executable
 COPY hosts/attacker/sslstrip /usr/local/bin/sslstrip
 RUN chmod +x /usr/local/bin/sslstrip
+
+# Dummy Boy
+RUN git clone https://github.com/moxie0/sslstrip
+RUN pip3 install virtualenv
+RUN virtualenv -p python2 sslstripenv
+RUN . sslstripenv/bin/activate && cd sslstrip && pip install Twisted pyOpenSSL service_identity

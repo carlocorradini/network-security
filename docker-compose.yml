@@ -13,8 +13,6 @@ services:
       - ALL
     volumes:
       - /dev/shm:/dev/shm
-    ports:
-      - "8080:80"
     mac_address: 02:42:c0:a8:00:0a
     networks:
       network:
@@ -33,8 +31,6 @@ services:
     privileged: true
     volumes:
       - /dev/shm:/dev/shm
-    ports:
-      - "8081:80"
     mac_address: 02:42:c0:a8:00:14
     networks:
       network:
@@ -52,8 +48,6 @@ services:
       - ALL
     volumes:
       - /dev/shm:/dev/shm
-    ports:
-      - "8082:80"
     mac_address: 02:42:c0:a8:00:1e
     networks:
       network:
