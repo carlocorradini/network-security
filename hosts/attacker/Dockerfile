@@ -29,4 +29,4 @@ COPY hosts/attacker/mitmdump /usr/local/bin/mitmdump
 RUN chmod +x /usr/local/bin/mitmdump
 
 # Copy sslstrip script
-COPY hosts/attacker/sslstrip.py /root/sslstrip.py
+COPY hosts/attacker/sslstrip.py /root/Desktop/sslstrip.py
