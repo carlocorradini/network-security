@@ -63,9 +63,9 @@ def request(flow: http.HTTPFlow) -> None:
 
     # Modify POST request payload
     if flow.request.method == 'POST' and 'pay' in flow.request.content.decode():
-        inject = { "pay": ctx.options.pay }
+        inject = json.dumps({ "pay": ctx.options.pay })
         ctx.log.info(f'[PAY PAYLOAD MODIFIED]: from {flow.request.content.decode()} to {inject}')
-        flow.request.content = json.dumps(inject).encode()
+        flow.request.content = inject.encode()
 
 def response(flow: http.HTTPFlow) -> None:
     assert flow.response
