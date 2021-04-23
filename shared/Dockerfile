@@ -26,7 +26,9 @@ RUN apt-get -y install \
         net-tools \
         iproute2 \
         arping \
-        vim
+        traceroute \
+        vim \ 
+        nano
 
 # Copy basic .vimrc
 COPY shared/.vimrc /root/.vimrc
