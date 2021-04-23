@@ -5,7 +5,7 @@
 #
 ARG BACKGROUND_IMAGE=hosts/client/background.png
 
-INCLUDE+ shared/Dockerfile
+INCLUDE+ shared/Dockerfile.gui
 
 #
 # Install tools

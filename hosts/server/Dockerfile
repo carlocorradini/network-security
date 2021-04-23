@@ -1,17 +1,16 @@
 # syntax = edrevo/dockerfile-plus
 
+INCLUDE+ shared/Dockerfile.term
+
 #
 # ARGs
 #
 ARG BACKGROUND_IMAGE=hosts/server/background.png
 
-INCLUDE+ shared/Dockerfile
-
 #
 # Install tools
 #
 RUN apt-get -y install \
-        ncat \
         xinetd \
         telnetd
 
