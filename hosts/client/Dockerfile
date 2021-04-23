@@ -12,6 +12,3 @@ INCLUDE+ shared/Dockerfile
 #
 RUN apt-get -y install \
         telnet
-
-# Copy basic .vimrc
-COPY shared/.vimrc /root/.vimrc

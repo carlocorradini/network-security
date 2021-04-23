@@ -28,6 +28,9 @@ RUN apt-get -y install \
         arping \
         vim
 
+# Copy basic .vimrc
+COPY shared/.vimrc /root/.vimrc
+
 #
 # Background image
 #
