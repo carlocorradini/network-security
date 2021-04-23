@@ -50,10 +50,6 @@ services:
     tty: true
     cap_add:
       - ALL
-    volumes:
-      - /dev/shm:/dev/shm
-    ports:
-      - "8082:80"
     mac_address: 02:42:c0:a8:00:1e
     networks:
       network:
