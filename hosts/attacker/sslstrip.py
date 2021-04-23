@@ -29,10 +29,15 @@ secure_hosts: typing.Set[str] = set()
 def load(loader):
     loader.add_option(
         name = "withdraw",
-        typespec = int,
-        default = 0,
+        typespec = typing.Optional[int],
+        default = None,
         help = "Add a new withdraw",
     )
+
+def configure(updates):
+    if "withdraw" in updates and ctx.options.withdraw is None:
+        print("Please insert a new withdraw!")
+        ctx.master.shutdown()
 
 def request(flow: http.HTTPFlow) -> None:
     flow.request.headers.pop('If-Modified-Since', None)
