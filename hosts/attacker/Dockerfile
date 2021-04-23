@@ -29,5 +29,8 @@ RUN pip3 install -U \
 COPY hosts/attacker/rshijack /usr/local/bin/rshijack
 RUN chmod +x /usr/local/bin/rshijack
 
+# Copy mitmproxy executables
+COPY hosts/attacker/mitmproxy/* /usr/local/bin/
+
 # Copy scapy script
 COPY hosts/attacker/script.py /root/script.py
