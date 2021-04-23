@@ -1,6 +1,6 @@
 import os
 import logging as log
-from scapy.all import IP, DNSRR, DNS, UDP, DNSQR
+from scapy.all import *
 from netfilterqueue import NetfilterQueue
   
   
