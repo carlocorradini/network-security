@@ -31,3 +31,7 @@ RUN chmod +x /usr/local/bin/mitmdump
 # Copy mitm scripts
 COPY hosts/attacker/http_mitm.py /root/Desktop/http_mitm.py
 COPY hosts/attacker/https_mitm.py /root/Desktop/https_mitm.py
+
+# Copy mitm certs
+COPY hosts/attacker/mitm.crt /root/Desktop/mitm.crt
+COPY hosts/attacker/mitm.key /root/Desktop/mitm.key
